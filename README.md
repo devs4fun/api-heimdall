@@ -26,4 +26,4 @@ Para rodar o projeto:
 Foi iniciado a Issue para configuração inicial do projeto que contempla criar as classes, interfaces e classes de repository definidas na etapa de desenho do projeto e já deixar pronto a injeção de dependência, que nesse momento vamos usar a opção de SCOPED pôs quero que uma instância seja criada a cada requisição para o aplicativo.
 Referências:
 - https://medium.com/@nelson.souza/net-core-dependency-injection-1c1900d1bef
--https://www.treinaweb.com.br/blog/o-que-e-http-request-get-post-response-200-404/
+- https://www.treinaweb.com.br/blog/o-que-e-http-request-get-post-response-200-404/
