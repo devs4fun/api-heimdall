@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiHeimdall.Models
 {
-    public class Usuário
+    public class Usuario
     {
         public int Id { get; set; }
         public bool Ativo { get; set; }

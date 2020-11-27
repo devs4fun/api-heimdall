@@ -11,8 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ApiHeimdall.Interfaces;
-using ApiHeimdall.Models;
 using ApiHeimdall.Repositorys;
+using Microsoft.EntityFrameworkCore;
+using ApiHeimdall.Data;
 
 namespace ApiHeimdall
 {
@@ -22,12 +23,15 @@ namespace ApiHeimdall
         {
             Configuration = configuration;
         }
-
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = Configuration["ConexaoMySql:MySqlConnectionString"];
+            services.AddDbContext<AplicationContext>(options => options.UseMySql(connection));
+
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
 
