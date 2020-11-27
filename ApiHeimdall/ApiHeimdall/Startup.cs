@@ -34,6 +34,7 @@ namespace ApiHeimdall
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
+            services.AddScoped<AplicationContext>();
 
             services.AddControllers();
         }
