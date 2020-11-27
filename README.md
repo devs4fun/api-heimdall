@@ -27,3 +27,12 @@ Foi iniciado a Issue para configuração inicial do projeto que contempla criar 
 Referências:
 - https://medium.com/@nelson.souza/net-core-dependency-injection-1c1900d1bef
 - https://www.treinaweb.com.br/blog/o-que-e-http-request-get-post-response-200-404/
+
+#TERCEIRA ETAPA
+Baixei os pacotes necessários do EntityFramework Core para usuar EF com my sql: 
+  - EF Tools para conseguir usar o migration e os EF Mysql.
+  
+  Referências:
+  - http://www.macoratti.net/17/05/efcore_mysql1.htm
+  - https://medium.com/@gedanmagalhaes/criando-uma-api-rest-com-asp-net-core-3-1-entity-framework-mysql-423c00e3b58e
+  
