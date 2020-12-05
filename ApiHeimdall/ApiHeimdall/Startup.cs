@@ -14,6 +14,7 @@ using ApiHeimdall.Interfaces;
 using ApiHeimdall.Repositorys;
 using Microsoft.EntityFrameworkCore;
 using ApiHeimdall.Data;
+using ApiHeimdall.Services;
 
 namespace ApiHeimdall
 {
@@ -35,6 +36,7 @@ namespace ApiHeimdall
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<AplicationContext>();
+            services.AddTransient<IEmailSender, AuthMessageSender>();
 
             services.AddControllers();
         }

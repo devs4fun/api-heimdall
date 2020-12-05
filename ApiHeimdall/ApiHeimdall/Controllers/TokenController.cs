@@ -1,5 +1,6 @@
 ﻿using ApiHeimdall.Interfaces;
 using ApiHeimdall.Models;
+using ApiHeimdall.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,15 @@ namespace ApiHeimdall.Controllers
     [Route("api/[controller]")]
     public class TokenController : Controller
     {
-        private readonly ITokenRepository tokenRepository;
-        private readonly IUsuarioRepository usuarioRepository;
-        public TokenController(ITokenRepository _tokenRepository, IUsuarioRepository _usuarioRepository)
+        private readonly ITokenRepository _tokenRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IEmailSender _emailSender;
+
+        public TokenController(ITokenRepository tokenRepository, IUsuarioRepository usuarioRepository, IEmailSender emailSender)
         {
-            tokenRepository = _tokenRepository;
-            usuarioRepository = _usuarioRepository;
+            _tokenRepository = tokenRepository;
+            _usuarioRepository = usuarioRepository;
+            _emailSender = emailSender;
         }
 
         [HttpPost]
@@ -26,7 +30,7 @@ namespace ApiHeimdall.Controllers
         {
             if (!string.IsNullOrEmpty(email))
             {
-                Usuario usuarioDoBanco = usuarioRepository.BuscarPorEmail(email);
+                Usuario usuarioDoBanco = _usuarioRepository.BuscarPorEmail(email);
                 if(usuarioDoBanco.Email != null)
                 {
                     string tokenString = HashAlgorithm.Create(email + DateTime.Now).ToString();
@@ -36,8 +40,11 @@ namespace ApiHeimdall.Controllers
                         Email = email,
                         DataLimite = DateTime.Now.AddDays(2)
                     };
-                    tokenRepository.Salvar(token);
+                    _tokenRepository.Salvar(token);
                     //Enviar endpoint de validação com o ww.site.com/ControllerToken/5d2002abe8906a48e94c7ff0c111f0e8
+                    string assunto = "Validação do cadastro";
+                    string mensagem = "Clique no link para ativar sua conta <a>localhost.com/ControllerToken/</a> " + token.Valor;
+                    _emailSender.SendEmailAsync(token.Email, assunto, mensagem);
                 }
             } else
             {
