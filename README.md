@@ -39,3 +39,11 @@ Baixei os pacotes necessários do EntityFramework Core para usar EF com Mysql:
   - http://www.macoratti.net/17/05/efcore_mysql1.htm
   - https://medium.com/@gedanmagalhaes/criando-uma-api-rest-com-asp-net-core-3-1-entity-framework-mysql-423c00e3b58e
   
+# QUARTA ETAPA
+  Envio de email...
+  
+  Referências:
+  - https://www.youtube.com/watch?v=a-IJdB6QFq0&feature=youtu.be&ab_channel=ThiagoPelissari
+  - https://github.com/thiagoPelissari/EnviarEmail/blob/master/EnviarEmail/Controllers/HomeController.cs
+  
+  
