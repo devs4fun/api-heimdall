@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "MD5/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MD5.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MD5.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1529,6 +1538,20 @@
     }
   },
   "libraries": {
+    "MD5/2.0.0": {
+      "sha512": "zqGWlcmMXAqDxsMU16kJ8S8FYLl4aNfYzbtA/BdttpuqBDSz3+4DJHl5/bv4fr+Zn8+tuacBFYpqYDPToiErpw==",
+      "type": "package",
+      "path": "md5/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Imagem1.png",
+        "lib/netstandard2.0/MD5.dll",
+        "license.txt",
+        "md5.2.0.0.nupkg.sha512",
+        "md5.nuspec"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "type": "package",
@@ -5383,6 +5406,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "MD5 >= 2.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.10",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.10",
       "Pomelo.EntityFrameworkCore.MySql >= 3.2.4",
@@ -5390,23 +5414,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\notebook\\.nuget\\packages\\": {},
+    "C:\\Users\\robson\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
+      "projectUniqueName": "C:\\projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
       "projectName": "ApiHeimdall",
-      "projectPath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
-      "packagesPath": "C:\\Users\\notebook\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\obj\\",
+      "projectPath": "C:\\projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
+      "packagesPath": "C:\\Users\\robson\\.nuget\\packages\\",
+      "outputPath": "C:\\projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\notebook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\robson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5418,6 +5442,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5429,7 +5454,12 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "MD5": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.10, )"
@@ -5467,7 +5497,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
