@@ -19,7 +19,7 @@ namespace ApiHeimdall.Models
 
                 // Destinatario seta no metodo abaixo
 
-                //Contrói o MailMessage
+                //Constroi o MailMessage
                 _mailMessage.CC.Add(email);
                 _mailMessage.Subject = assunto;
                 _mailMessage.IsBodyHtml = true;

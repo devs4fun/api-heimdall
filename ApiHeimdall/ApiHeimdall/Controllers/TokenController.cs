@@ -39,8 +39,9 @@ namespace ApiHeimdall.Controllers
                         Email = email,
                         DataLimite = DateTime.Now.AddDays(2)
                     };
+
                     _tokenRepository.Salvar(token);
-                    //Enviar endpoint de validação com o ww.site.com/ControllerToken/5d2002abe8906a48e94c7ff0c111f0e8
+
                     string assunto = "Validação do cadastro";
                     string mensagem = "<a href='https://localhost:44309/api/token/" + tokenString + " ' >Clique no link para ativar sua conta</a>";
                     EnviarEmail enviaremail = new EnviarEmail();
@@ -51,7 +52,7 @@ namespace ApiHeimdall.Controllers
                 return BadRequest();
             }
 
-            return Ok("");
+            return Ok("Ok");
         }
     }
 }
