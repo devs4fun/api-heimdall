@@ -29,5 +29,10 @@ namespace ApiHeimdall.Repositorys
             _aplicationcontext.usuarios.Add(novoUsuario);
             _aplicationcontext.SaveChanges();
         }
+
+        public Usuario BuscarPorEmail(string email)
+        {
+            return _aplicationcontext.usuarios.FirstOrDefault(usuario => usuario.Email == email);
+        }
     }
 }
