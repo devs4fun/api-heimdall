@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "TDP9zKUepDxuXe+e0q3I+TnLAnWKevlHxPAR2oGpXecGFOPuYWpVKBCpgpZ3xXimb4Rv2wRgzkBUWjr6C36O9Q==",
+  "dgSpecHash": "vR+U6KbjyRYMoCG9CroPJpOhsoGmbhUDLpn+8WYQAd1B9MteKl75YVO1rGNfbz/ardruaJl2SO3GumUne3PfYg==",
   "success": true,
   "projectFilePath": "C:\\projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\robson\\.nuget\\packages\\md5\\2.0.0\\md5.2.0.0.nupkg.sha512",
     "C:\\Users\\robson\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\robson\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\robson\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
