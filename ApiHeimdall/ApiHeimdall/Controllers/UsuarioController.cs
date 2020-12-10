@@ -43,5 +43,12 @@ namespace ApiHeimdall.Controllers
             }
             return Ok(usuario);
         }
+
+        [Route("api/[controller]/ValidarChave")]
+        [HttpPost]
+        public ActionResult Post([FromBody] string chave)
+        {
+
+        }
     }
 }
