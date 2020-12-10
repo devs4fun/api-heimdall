@@ -38,8 +38,8 @@ namespace ApiHeimdall.Controllers
             else
             {
                 _usuarioRepository.Cadastrar(usuario);
-                TokenController tokenController = new TokenController(_tokenRepository, _usuarioRepository);
-                tokenController.Post(usuario.Email);
+                Token token = new Token();
+                token.CriarTokenEEnviarPorEmail(usuario.Email, _usuarioRepository, _tokenRepository);
             }
             return Ok(usuario);
         }
