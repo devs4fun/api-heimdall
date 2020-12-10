@@ -5,20 +5,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiHeimdall.Controllers;
 
 namespace ApiHeimdall.Controllers
 {
     public class UsuarioController : Controller
     {
-        readonly IUsuarioRepository _usuarioRepository;
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly ITokenRepository _tokenRepository;
+        
+        public UsuarioController(IUsuarioRepository usuarioRepository, ITokenRepository tokenRepository)
         {
             _usuarioRepository = usuarioRepository;
+            _tokenRepository = tokenRepository;
         }
 
         [Route("api/[controller]")]
         [HttpPost]
-        public ActionResult CadastroUsuario([FromBody] Usuario usuario)
+        public ActionResult Post([FromBody] Usuario usuario)
         {
             
             if (!(usuario.eUsuarioValido()))
@@ -34,6 +38,8 @@ namespace ApiHeimdall.Controllers
             else
             {
                 _usuarioRepository.Cadastrar(usuario);
+                Token token = new Token();
+                token.CriarTokenEEnviarPorEmail(usuario.Email, _usuarioRepository, _tokenRepository);
             }
             return Ok(usuario);
         }
