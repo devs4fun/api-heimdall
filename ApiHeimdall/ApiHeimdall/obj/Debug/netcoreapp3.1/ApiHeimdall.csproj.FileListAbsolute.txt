@@ -91,3 +91,4 @@ C:\projetos\api-heimdall\ApiHeimdall\ApiHeimdall\obj\Debug\netcoreapp3.1\ApiHeim
 C:\projetos\api-heimdall\ApiHeimdall\ApiHeimdall\obj\Debug\netcoreapp3.1\ApiHeimdall.dll
 C:\projetos\api-heimdall\ApiHeimdall\ApiHeimdall\obj\Debug\netcoreapp3.1\ApiHeimdall.pdb
 C:\projetos\api-heimdall\ApiHeimdall\ApiHeimdall\obj\Debug\netcoreapp3.1\ApiHeimdall.genruntimeconfig.cache
+E:\Users\thiag\source\repos\api-heimdall\ApiHeimdall\ApiHeimdall\bin\Debug\netcoreapp3.1\MD5.dll
