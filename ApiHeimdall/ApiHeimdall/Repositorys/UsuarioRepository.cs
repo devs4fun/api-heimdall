@@ -34,5 +34,11 @@ namespace ApiHeimdall.Repositorys
         {
             return _aplicationcontext.usuarios.FirstOrDefault(usuario => usuario.Email == email);
         }
+
+        public void Atualizar(Usuario usuario)
+        {
+            _aplicationcontext.usuarios.Update(usuario);
+            _aplicationcontext.SaveChanges();
+        }
     }
 }

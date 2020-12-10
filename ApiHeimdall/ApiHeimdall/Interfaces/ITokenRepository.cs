@@ -10,5 +10,6 @@ namespace ApiHeimdall.Interfaces
     public interface ITokenRepository
     {
         void Salvar(Token token);
+        Token BuscarToken(string key);
     }
 }
