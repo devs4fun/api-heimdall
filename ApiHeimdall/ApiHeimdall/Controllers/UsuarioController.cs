@@ -48,7 +48,21 @@ namespace ApiHeimdall.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] string chave)
         {
+            Usuario usuario;
 
+            if (string.IsNullOrEmpty(chave))
+            {
+                return BadRequest();
+            } else
+            {
+                usuario = _usuarioRepository.BuscarChave(chave);
+                if(usuario == null)
+                {
+                    return BadRequest();
+                }
+            }
+
+            return Ok(usuario);
         }
     }
 }

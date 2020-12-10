@@ -40,5 +40,10 @@ namespace ApiHeimdall.Repositorys
             _aplicationcontext.usuarios.Update(usuario);
             _aplicationcontext.SaveChanges();
         }
+
+        public Usuario BuscarChave(string chave)
+        {
+           return _aplicationcontext.usuarios.FirstOrDefault(u => u.Chave == chave);
+        }
     }
 }
