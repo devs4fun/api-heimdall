@@ -16,6 +16,12 @@ namespace ApiHeimdall.Repositorys
         {
             aplicationContext = _aplicationContext;
         }
+
+        public Token BuscarToken(string key)
+        {
+            return aplicationContext.tokens.FirstOrDefault(t => t.Valor == key);
+        }
+
         public void Salvar(Token token)
         {
             aplicationContext.tokens.Add(token);

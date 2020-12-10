@@ -47,3 +47,5 @@ Baixei os pacotes necessários do EntityFramework Core para usar EF com Mysql:
   - https://github.com/thiagoPelissari/EnviarEmail/blob/master/EnviarEmail/Controllers/HomeController.cs
   
   
+# ATIVAÇÃO DE E-MAIL - /api/tokenController/82f6bfc659a7dd6274ad6f0fd01c6971
+  Verifica o token e ativa o usuário...
