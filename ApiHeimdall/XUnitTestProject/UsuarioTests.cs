@@ -102,7 +102,7 @@ namespace XUnitTestProject
 
         [Trait("UsuarioController", "ValidarChave")]
         [Theory(DisplayName = "04-DeveriaFalharAoTentarValidarChave")]
-        [InlineData(" ")]
+        [InlineData("         ")]
         [InlineData("")]
         [InlineData("ChaveQueNaoExiste")]
         public void DeveriaFalharAoTentarValidarChave(string chave)

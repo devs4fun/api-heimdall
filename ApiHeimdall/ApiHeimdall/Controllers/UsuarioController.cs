@@ -50,7 +50,9 @@ namespace ApiHeimdall.Controllers
         {
             Usuario usuario;
 
-            if (string.IsNullOrEmpty(chave))
+            string chaveManipulada = chave.Trim();
+
+            if (string.IsNullOrEmpty(chave) || chaveManipulada.Length <= 0)
             {
                 return BadRequest();
             } else
