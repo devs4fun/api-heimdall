@@ -99,5 +99,26 @@ namespace XUnitTestProject
             //Assert
             Assert.True(retorno.StatusCode == 400);
         }
+
+        [Trait("UsuarioController", "ValidarChave")]
+        [Theory(DisplayName = "04-DeveriaFalharAoTentarValidarChave")]
+        [InlineData("         ")]
+        [InlineData("")]
+        [InlineData("ChaveQueNaoExiste")]
+        public void DeveriaFalharAoTentarValidarChave(string chave)
+        {
+            //Arrange
+            var UsuarioRepositoryMock = new Mock<IUsuarioRepository>();
+            var TokenRepositoryMock = new Mock<ITokenRepository>();
+            var sutUsuarioController = new UsuarioController(UsuarioRepositoryMock.Object, TokenRepositoryMock.Object);
+            Usuario usuario = null;
+            UsuarioRepositoryMock.Setup(u => u.BuscarChave(chave)).Returns(usuario);
+
+            //Act
+            var retorno = sutUsuarioController.Post(chave) as BadRequestResult;
+
+            //Assert
+            Assert.True(retorno.StatusCode == 400);
+        }
     }
 }

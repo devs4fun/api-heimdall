@@ -12,5 +12,6 @@ namespace ApiHeimdall.Interfaces
         void Cadastrar(Usuario novoUsuario);
         Usuario BuscarPorEmail(string email);
         void Atualizar(Usuario usuario);
+        Usuario BuscarChave(string chave);
     }
 }
