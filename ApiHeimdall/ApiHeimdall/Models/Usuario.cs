@@ -25,6 +25,5 @@ namespace ApiHeimdall.Models
             }
             return true;
         }
-
     }
 }

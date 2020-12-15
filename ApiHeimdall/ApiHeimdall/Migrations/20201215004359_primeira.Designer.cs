@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiHeimdall.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    [Migration("20201210011123_primera")]
-    partial class primera
+    [Migration("20201215004359_primeira")]
+    partial class primeira
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
