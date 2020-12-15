@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ApiHeimdall.Migrations
 {
-    public partial class primera : Migration
+    public partial class primeira : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -23,18 +23,23 @@ namespace ApiHeimdall.Repositorys
             else
                 return null;
         }
-
+        public Usuario BuscarPorEmail(string email)
+        {
+            return _aplicationcontext.usuarios.FirstOrDefault(usuario => usuario.Email == email);
+        }
+        public Usuario BuscarPorUserName(string username)
+        {
+            return _aplicationcontext.usuarios.FirstOrDefault(usuario => usuario.UserName == username);
+        }
+        public Usuario BuscarUsuario(Usuario usuario)
+        {
+            return _aplicationcontext.usuarios.FirstOrDefault(u => u.Email == usuario.Email || u.UserName == usuario.UserName && u.Senha == usuario.Senha);
+        }
         public void Cadastrar(Usuario novoUsuario)
         {
             _aplicationcontext.usuarios.Add(novoUsuario);
             _aplicationcontext.SaveChanges();
         }
-
-        public Usuario BuscarPorEmail(string email)
-        {
-            return _aplicationcontext.usuarios.FirstOrDefault(usuario => usuario.Email == email);
-        }
-
         public void Atualizar(Usuario usuario)
         {
             _aplicationcontext.usuarios.Update(usuario);
