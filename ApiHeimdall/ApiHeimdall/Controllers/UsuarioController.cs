@@ -73,5 +73,28 @@ namespace ApiHeimdall.Controllers
 
             return Ok(new {chave = chaveString });
         }
+        
+        [Route("api/[controller]/ValidarChave")]
+        [HttpPost]
+        public ActionResult Post([FromBody] string chave)
+        {
+            Usuario usuario;
+
+            string chaveManipulada = chave.Trim();
+
+            if (string.IsNullOrEmpty(chave) || chaveManipulada.Length <= 0)
+            {
+                return BadRequest();
+            } else
+            {
+                usuario = _usuarioRepository.BuscarChave(chave);
+                if(usuario == null)
+                {
+                    return BadRequest();
+                }
+            }
+
+            return Ok(usuario);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ApiHeimdall.Interfaces
         Usuario BuscarPorEmail(string email);
         Usuario BuscarPorUserName(string username);
         void Atualizar(Usuario usuario);
+        Usuario BuscarChave(string chave);
         Usuario BuscarUsuario(Usuario usuarioLogin);
     }
 }
