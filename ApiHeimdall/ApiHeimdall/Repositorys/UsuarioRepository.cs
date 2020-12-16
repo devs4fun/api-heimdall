@@ -33,7 +33,15 @@ namespace ApiHeimdall.Repositorys
         }
         public Usuario BuscarUsuario(Usuario usuario)
         {
-            return _aplicationcontext.usuarios.FirstOrDefault(u => u.Email == usuario.Email || u.UserName == usuario.UserName && u.Senha == usuario.Senha);
+            var usuarioBanco = _aplicationcontext.usuarios.FirstOrDefault(u => u.Email == usuario.Email || u.UserName == usuario.UserName);
+            if(usuarioBanco != null)
+            {
+                if (usuario.Senha == usuarioBanco.Senha && usuario.Email == usuarioBanco.Email)
+                {
+                    return usuarioBanco;
+                }
+            }
+            return null;
         }
         public void Cadastrar(Usuario novoUsuario)
         {
