@@ -32,7 +32,7 @@ namespace ApiHeimdall.Models
                     _tokenRepository.Salvar(token);
 
                     string assunto = "Validação do cadastro";
-                    string mensagem = "<a href='https://localhost:44309/api/token/" + tokenString + " ' >Clique no link para ativar sua conta</a>";
+                    string mensagem = "<a href='https://localhost:44357/api/token/" + tokenString + " ' >Clique no link para ativar sua conta</a>";
                     EnviarEmail enviaremail = new EnviarEmail();
                     enviaremail.enviar(token.Email, mensagem, assunto);
                 }
