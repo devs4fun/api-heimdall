@@ -37,6 +37,8 @@ namespace ApiHeimdall.Controllers
             }
             else
             {
+                string criptografiaSenha = MD5Hash.Hash.Content(usuario.Senha);
+                usuario.Senha = criptografiaSenha;
                 _usuarioRepository.Cadastrar(usuario);
                 Token token = new Token();
                 token.CriarTokenEEnviarPorEmail(usuario.Email, _usuarioRepository, _tokenRepository);
@@ -52,6 +54,9 @@ namespace ApiHeimdall.Controllers
             {
                 return BadRequest();
             }
+
+            string criptografiaSenha = MD5Hash.Hash.Content(usuarioLogin.Senha);
+            usuarioLogin.Senha = criptografiaSenha;
 
             Usuario usuarioBanco = _usuarioRepository.BuscarUsuario(usuarioLogin);
             if(usuarioBanco == null)
