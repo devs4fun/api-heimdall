@@ -38,6 +38,10 @@ namespace ApiHeimdall.Repositorys
             {
                 if (usuario.Senha == usuarioBanco.Senha && usuario.Email == usuarioBanco.Email)
                 {
+                     return usuarioBanco;
+                }
+                if (usuario.Senha == usuarioBanco.Senha && usuario.UserName == usuarioBanco.UserName)
+                {
                     return usuarioBanco;
                 }
                 if(usuario.Senha == usuarioBanco.Senha && usuario.UserName == usuarioBanco.UserName)
