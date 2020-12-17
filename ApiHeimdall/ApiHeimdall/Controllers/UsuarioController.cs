@@ -101,5 +101,30 @@ namespace ApiHeimdall.Controllers
 
             return Ok(usuario);
         }
+        [Route("api/[controller]/logout")]
+        [HttpPost]
+        public ActionResult Logout([FromHeader] string chave)
+        {
+            Usuario usuario;
+            string chaveManipulada = chave.Trim();
+
+            if (string.IsNullOrEmpty(chave) || chaveManipulada.Length <= 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                usuario = _usuarioRepository.BuscarChave(chaveManipulada);
+                if(usuario == null)
+                {
+                    return BadRequest(new { menssagem = "Não foi possivel fazer Logout ou você já esta deslogado" });
+                }
+
+                usuario.Chave = null;
+                _usuarioRepository.Atualizar(usuario);
+            }
+
+            return Ok(new { menssagem = "Logout com sucesso" });
+        }
     }
 }
