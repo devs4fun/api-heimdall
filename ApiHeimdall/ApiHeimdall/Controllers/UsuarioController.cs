@@ -27,13 +27,13 @@ namespace ApiHeimdall.Controllers
             
             if (!(usuario.eUsuarioValido()))
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = "Dados preenchidos incorretamente." });
             }
 
             var uTemp = _usuarioRepository.Buscar(usuario.Id);
             if (uTemp != null)
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = "Usuário já existe." });
             }
             else
             {
@@ -43,7 +43,7 @@ namespace ApiHeimdall.Controllers
                 Token token = new Token();
                 token.CriarTokenEEnviarPorEmail(usuario.Email, _usuarioRepository, _tokenRepository);
             }
-            return Ok(usuario);
+            return Ok(new { mensagem = "Usuário cadastrado com sucesso." });
         }
 
         [Route("api/[controller]/login")]
@@ -52,7 +52,7 @@ namespace ApiHeimdall.Controllers
         {
             if (String.IsNullOrEmpty(usuarioLogin.UserName) && String.IsNullOrEmpty(usuarioLogin.Email) || String.IsNullOrEmpty(usuarioLogin.Senha))
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = "Por favor preencha os campos corretamente." });
             }
 
             string criptografiaSenha = MD5Hash.Hash.Content(usuarioLogin.Senha);
@@ -61,14 +61,14 @@ namespace ApiHeimdall.Controllers
             Usuario usuarioBanco = _usuarioRepository.BuscarUsuario(usuarioLogin);
             if(usuarioBanco == null)
             {
-                return NotFound();
+                return NotFound(new { mensagem = "Email/Usuário ou senha incorretos." });
             }
 
             if(usuarioBanco.Ativo == false)
             {
                 Token novoToken = new Token();
                 novoToken.CriarTokenEEnviarPorEmail(usuarioBanco.Email, _usuarioRepository, _tokenRepository);
-                return BadRequest();
+                return BadRequest(new { mensagem = "Infelizmente sua conta ainda está desativada, enviamos uma mensagem de ativação para o seu e-mail." });
             }
 
             string chaveString = MD5Hash.Hash.Content(usuarioLogin.Email + DateTime.Now);
@@ -89,13 +89,14 @@ namespace ApiHeimdall.Controllers
 
             if (string.IsNullOrEmpty(chave) || chaveManipulada.Length <= 0)
             {
-                return BadRequest();
-            } else
+                return BadRequest(new { mensagem = "Chave nulla ou vazia." });
+            } 
+            else
             {
                 usuario = _usuarioRepository.BuscarChave(chave);
                 if(usuario == null)
                 {
-                    return BadRequest();
+                    return BadRequest(new { mensagem = "Chave não existe." });
                 }
             }
 

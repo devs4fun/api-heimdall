@@ -35,14 +35,10 @@ namespace ApiHeimdall.Models
                     string mensagem = "<a href='https://localhost:44357/api/token/" + tokenString + " ' >Clique no link para ativar sua conta</a>";
                     EnviarEmail enviaremail = new EnviarEmail();
                     enviaremail.enviar(token.Email, mensagem, assunto);
+                    return true;
                 }
             }
-            else
-            {
-                return false;
-            }
-
-            return true;
+            return false;
         }
     }
 }

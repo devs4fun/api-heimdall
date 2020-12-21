@@ -30,7 +30,7 @@ namespace ApiHeimdall.Controllers
             Token token = new Token();
             if(token.CriarTokenEEnviarPorEmail(email, _usuarioRepository, _tokenRepository) == false)
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = "E-mail não cadastrado." });
             }
             
             return Ok("Ok");
@@ -43,7 +43,7 @@ namespace ApiHeimdall.Controllers
         {
             if (string.IsNullOrEmpty(token))
             {
-                return BadRequest();
+                return BadRequest(new { mensagem = "Token não encontrado." });
             }
 
             Token tokenDoBanco = _tokenRepository.BuscarToken(token);
@@ -51,17 +51,17 @@ namespace ApiHeimdall.Controllers
            
             if(tokenDoBanco == null)
             {
-                return NotFound("token não existe!");
+                return NotFound(new { mensagem = "Token não existe." });
             }
             else if(tokenDoBanco.DataLimite < DateTime.Now)
             {
                 Post(tokenDoBanco.Email);
-                return BadRequest("Token expirado, um novo link foi enviado para o seu e-mail!");
+                return BadRequest(new { mensagem = "Este link de ativação expirou, um novo foi enviado para o seu e-mail." });
             }
 
             else if(usuarioDoBanco.Ativo == true)
             {
-                return Ok("Usuário já está ativo!");
+                return Ok(new { mensagem = "Seu usuário já está ativo." });
             }
            
 
