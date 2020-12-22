@@ -19,7 +19,12 @@ namespace ApiHeimdall.Repositorys
 
         public Token BuscarToken(string key)
         {
-            return aplicationContext.tokens.FirstOrDefault(t => t.Valor == key);
+            var tokenBanco = aplicationContext.tokens.FirstOrDefault(t => t.Valor == key);
+            if (tokenBanco != null)
+            {
+                return tokenBanco;
+            }
+            return null;
         }
 
         public void Salvar(Token token)

@@ -5419,23 +5419,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ROBSON\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\thiag\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
+      "projectUniqueName": "E:\\Users\\thiag\\source\\repos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
       "projectName": "ApiHeimdall",
-      "projectPath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
-      "packagesPath": "C:\\Users\\ROBSON\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\obj\\",
+      "projectPath": "E:\\Users\\thiag\\source\\repos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
+      "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+      "outputPath": "E:\\Users\\thiag\\source\\repos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ROBSON\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5502,7 +5498,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
