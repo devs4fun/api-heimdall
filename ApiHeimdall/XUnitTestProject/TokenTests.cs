@@ -11,7 +11,9 @@ namespace XUnitTestProject1
     public class UnitTest1
     {
         [Trait("TokenController", "Enviar e-mail para validação do cadastro")]
-        [Fact(DisplayName = "01-DeveriaEnviarUmEmailDeValidacaoDeCadastro")]
+        [Fact(DisplayName = "01 - Enviar e-mail para validação do cadastro")]
+
+
         public void DeveriaEnviarUmEmailDeconfirmacao()
         {
             //Arrange
