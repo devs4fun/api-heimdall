@@ -198,5 +198,47 @@ namespace XUnitTestProject
             //Assert
             Assert.True(retorno.StatusCode == 400);
         }
+
+        [Trait("UsuarioController", "Deveria falhar o cadastro de usuario com o e-mail que ja existe")]
+        [Fact(DisplayName = "07-Deveriafalharocadastrodeusuariocomoe-mailquejaexiste")]
+        public void Deveriafalharocadastrodeusuariocomoemailquejaexiste()
+        {
+            //Arrange
+            var MockIUsuarioRepository = new Mock<IUsuarioRepository>();
+            var MockITokenRepository = new Mock<ITokenRepository>();
+            var sutUsuarioController = new UsuarioController(MockIUsuarioRepository.Object, MockITokenRepository.Object);
+
+            var UsuarioFake = new Usuario()
+            {
+                Id = 0,
+                 Ativo = false,
+                  Chave = null,
+                   Email = "robsonjunior1994@gmail.com",
+                    NomeCompleto = "Robson Ribeiro",
+                     Senha = "123456789",
+                      UserName = "robsonjunior"
+            };
+
+            var UsuarioDoBanco = new Usuario()
+            {
+                Id = 1,
+                Ativo = true,
+                Chave = null,
+                Email = "robsonjunior1994@gmail.com",
+                NomeCompleto = "Robson Ribeiro",
+                Senha = "25f9e794323b453885f5181f1b624d0b",
+                UserName = "robsonjunior1994"
+            };
+
+            MockIUsuarioRepository.Setup(u => u.BuscarPorEmail(UsuarioFake.Email)).Returns(UsuarioDoBanco);
+
+            //Act
+            var resultado = sutUsuarioController.Post(UsuarioFake) as BadRequestObjectResult;
+
+            //Assert
+            MockIUsuarioRepository.Verify(u => u.Cadastrar(UsuarioFake), Times.Never);
+            Assert.True(resultado.StatusCode == 400);
+        }
     }
 }
+    
