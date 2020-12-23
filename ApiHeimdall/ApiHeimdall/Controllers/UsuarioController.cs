@@ -30,14 +30,15 @@ namespace ApiHeimdall.Controllers
                 return BadRequest(new { mensagem = "Dados preenchidos incorretamente." });
             }
 
-            var UsuarioBuscadoNoBanco = _usuarioRepository.BuscarPorEmail(usuario.Email);
-            if(UsuarioBuscadoNoBanco.UserName == usuario.UserName)
-            {
-                return BadRequest(new { mensagem = "Usuário já existe." });
-            }
+            Usuario UsuarioBuscadoNoBanco = _usuarioRepository.BuscarPorUserName(usuario.UserName);
             if (UsuarioBuscadoNoBanco != null)
             {
-                return BadRequest(new { mensagem = "Usuário já existe." });
+                if (UsuarioBuscadoNoBanco.UserName == usuario.UserName)
+                {
+                    return BadRequest(new { mensagem = "Username já existe." });
+                }
+
+                return BadRequest(new { mensagem = "E-mail já existe." });
             }
             else
             {

@@ -30,11 +30,15 @@ namespace XUnitTestProject
                 Senha = "eneas12345",
                 UserName = "eneasmartins"
             };
+
+            Usuario userDoBanco = null;
             UsuarioRepositoryMock.Setup(u => u.Cadastrar(usuarioFake));
+            UsuarioRepositoryMock.Setup(u => u.BuscarPorUserName(usuarioFake.UserName)).Returns(userDoBanco);
             UsuarioRepositoryMock.Setup(u => u.BuscarPorEmail(usuarioFake.Email)).Returns(usuarioFake);
-            
+
             //Act
             var retorno = sutUsuarioController.Post(usuarioFake) as OkObjectResult;
+            
 
             //Assert
             Assert.True(retorno.StatusCode == 200);
@@ -65,7 +69,7 @@ namespace XUnitTestProject
             UsuarioRepositoryMock.Setup(u => u.Cadastrar(usuarioFake));
 
             //Act
-            var retorno = sutUsuarioController.Post(usuarioFake) as BadRequestResult;
+            var retorno = sutUsuarioController.Post(usuarioFake) as BadRequestObjectResult;
 
             //Assert
             Assert.True(retorno.StatusCode == 400);
@@ -91,10 +95,10 @@ namespace XUnitTestProject
                 UserName = "eneasmartins"
             };
             UsuarioRepositoryMock.Setup(u => u.Cadastrar(usuarioFake));
-            UsuarioRepositoryMock.Setup(u => u.Buscar(usuarioFake.Id)).Returns(usuarioFake);
+            UsuarioRepositoryMock.Setup(u => u.BuscarPorUserName(usuarioFake.UserName)).Returns(usuarioFake);
 
             //Act
-            var retorno = sutUsuarioController.Post(usuarioFake) as BadRequestResult;
+            var retorno = sutUsuarioController.Post(usuarioFake) as BadRequestObjectResult;
 
             //Assert
             Assert.True(retorno.StatusCode == 400);
@@ -115,7 +119,7 @@ namespace XUnitTestProject
             UsuarioRepositoryMock.Setup(u => u.BuscarChave(chave)).Returns(usuario);
 
             //Act
-            var retorno = sutUsuarioController.Post(chave) as BadRequestResult;
+            var retorno = sutUsuarioController.Post(chave) as BadRequestObjectResult;
 
             //Assert
             Assert.True(retorno.StatusCode == 400);
@@ -193,15 +197,15 @@ namespace XUnitTestProject
             UsuarioRepositoryMock.Setup(u => u.BuscarUsuario(usuarioFake)).Returns(usuarioBancoFake);
             UsuarioRepositoryMock.Setup(u => u.BuscarPorEmail("eneasmartins.socialrj@gmail.com")).Returns(usuarioBancoFake);
             //Act
-            var retorno = sutUsuarioController.Login(usuarioFake) as BadRequestResult;
+            var retorno = sutUsuarioController.Login(usuarioFake) as BadRequestObjectResult;
 
             //Assert
             Assert.True(retorno.StatusCode == 400);
         }
 
-        [Trait("UsuarioController", "Deveria falhar o cadastro de usuario com o e-mail que ja existe")]
-        [Fact(DisplayName = "07-Deveriafalharocadastrodeusuariocomoe-mailquejaexiste")]
-        public void Deveriafalharocadastrodeusuariocomoemailquejaexiste()
+        [Trait("UsuarioController", "Deveria falhar o cadastro de usuario com o Username que ja existe")]
+        [Fact(DisplayName = "07-Deveriafalharocadastrodeusuariocomousernamequejaexiste")]
+        public void Deveriafalharocadastrodeusuariocomousernamequejaexiste()
         {
             //Arrange
             var MockIUsuarioRepository = new Mock<IUsuarioRepository>();
@@ -213,10 +217,10 @@ namespace XUnitTestProject
                 Id = 0,
                  Ativo = false,
                   Chave = null,
-                   Email = "robsonjunior1994@gmail.com",
+                   Email = "robsonjunior1994@hotmail.com",
                     NomeCompleto = "Robson Ribeiro",
                      Senha = "123456789",
-                      UserName = "robsonjunior"
+                      UserName = "robsonjunior1994"
             };
 
             var UsuarioDoBanco = new Usuario()
@@ -230,7 +234,7 @@ namespace XUnitTestProject
                 UserName = "robsonjunior1994"
             };
 
-            MockIUsuarioRepository.Setup(u => u.BuscarPorEmail(UsuarioFake.Email)).Returns(UsuarioDoBanco);
+            MockIUsuarioRepository.Setup(u => u.BuscarPorUserName(UsuarioFake.UserName)).Returns(UsuarioDoBanco);
 
             //Act
             var resultado = sutUsuarioController.Post(UsuarioFake) as BadRequestObjectResult;
