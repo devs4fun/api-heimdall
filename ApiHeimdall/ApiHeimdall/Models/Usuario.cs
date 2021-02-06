@@ -16,14 +16,30 @@ namespace ApiHeimdall.Models
         public string Email { get; set; }
         public string Senha { get; set; }
 
-        public bool eUsuarioValido()
+        public Usuario(string _NomeCompleto, string _UserName, string _Email, string _Senha)
+        {
+            NomeCompleto = _NomeCompleto;
+            UserName = _UserName;
+            Email = _Email;
+            Senha = _Senha;
+        }
+
+        public bool EhValido()
         {
             if (String.IsNullOrEmpty(NomeCompleto) || String.IsNullOrEmpty(UserName) ||
                 String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Senha) || Senha.Count() < 8)
             {
                 return false;
             }
+
+            CriptografarSenha();
             return true;
+        }
+
+        private void CriptografarSenha()
+        {
+            string criptografiaSenha = MD5Hash.Hash.Content(this.Senha);
+            this.Senha = criptografiaSenha;
         }
     }
 }

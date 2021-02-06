@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiHeimdall.Controllers;
+using ApiHeimdall.Services;
+using ApiHeimdall.ViewModel;
 
 namespace ApiHeimdall.Controllers
 {
@@ -22,32 +24,19 @@ namespace ApiHeimdall.Controllers
 
         [Route("api/[controller]/cadastro-usuario")]
         [HttpPost]
-        public ActionResult Post([FromBody] Usuario usuario)
+        public ActionResult Post([FromBody] UsuarioViewModel u)
         {
-            
-            if (!(usuario.eUsuarioValido()))
+            Usuario usuario = new Usuario(u.NomeCompleto, u.UserName, u.Email, u.Senha);
+
+            ServiceUsuario serviceUsuario = new ServiceUsuario(_usuarioRepository, _tokenRepository);
+
+            if (serviceUsuario.Cadastrar(usuario))
             {
-                return BadRequest(new { mensagem = "Dados preenchidos incorretamente." });
+                return Ok();
             }
 
-            var UsuarioBuscadoNoBanco = _usuarioRepository.BuscarPorEmail(usuario.Email);
-            if(UsuarioBuscadoNoBanco.UserName == usuario.UserName)
-            {
-                return BadRequest(new { mensagem = "Usuário já existe." });
-            }
-            if (UsuarioBuscadoNoBanco != null)
-            {
-                return BadRequest(new { mensagem = "Usuário já existe." });
-            }
-            else
-            {
-                string criptografiaSenha = MD5Hash.Hash.Content(usuario.Senha);
-                usuario.Senha = criptografiaSenha;
-                _usuarioRepository.Cadastrar(usuario);
-                Token token = new Token();
-                token.CriarTokenEEnviarPorEmail(usuario.Email, _usuarioRepository, _tokenRepository);
-            }
-            return Ok(new { mensagem = "Usuário cadastrado com sucesso." });
+            return BadRequest();
+
         }
 
         [Route("api/[controller]/login")]
