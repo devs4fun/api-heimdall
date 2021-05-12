@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiHeimdall.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    [Migration("20201216201716_primeira")]
+    [Migration("20210402022850_primeira")]
     partial class primeira
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
