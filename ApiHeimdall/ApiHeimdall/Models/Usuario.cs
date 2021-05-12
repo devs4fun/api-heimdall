@@ -16,7 +16,7 @@ namespace ApiHeimdall.Models
         public string Email { get; set; }
         public string Senha { get; set; }
 
-        public bool eUsuarioValido()
+        public bool EhValido()
         {
             if (String.IsNullOrEmpty(NomeCompleto) || String.IsNullOrEmpty(UserName) ||
                 String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Senha) || Senha.Count() < 8)

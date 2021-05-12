@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "y5Y5Fhyt/R8LjlHiHSLWNbrWHtl5vptDIsRsjx2K+ndKWK4B++ObKG5nQP5q3iqybSo0PDdeTfMRQ6F7hkqCVQ==",
+  "dgSpecHash": "7eaoP9hp53uSTwJYXiZVprCmUDNNB0/cdualp16nsnZFjuM3H+N6yEXmY4EHsHm2XGygmRuneZDmEm00jweE3A==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
   "expectedPackageFiles": [
@@ -106,7 +106,8 @@
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\ROBSON\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\ROBSON\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\ROBSON\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
   ],
   "logs": []
 }

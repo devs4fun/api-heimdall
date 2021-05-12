@@ -25,20 +25,25 @@ namespace ApiHeimdall.Controllers
         public ActionResult Post([FromBody] Usuario usuario)
         {
             
-            if (!(usuario.eUsuarioValido()))
+            if (!(usuario.EhValido()))
             {
                 return BadRequest(new { mensagem = "Dados preenchidos incorretamente." });
             }
 
             var UsuarioBuscadoNoBanco = _usuarioRepository.BuscarPorEmail(usuario.Email);
-            if(UsuarioBuscadoNoBanco.UserName == usuario.UserName)
+            
+            if(UsuarioBuscadoNoBanco != null)
             {
-                return BadRequest(new { mensagem = "Usuário já existe." });
+                if (UsuarioBuscadoNoBanco.UserName == usuario.UserName)
+                {
+                    return BadRequest(new { mensagem = "Usuário já existe." });
+                }
+                if (UsuarioBuscadoNoBanco != null)
+                {
+                    return BadRequest(new { mensagem = "Usuário já existe." });
+                }
             }
-            if (UsuarioBuscadoNoBanco != null)
-            {
-                return BadRequest(new { mensagem = "Usuário já existe." });
-            }
+           
             else
             {
                 string criptografiaSenha = MD5Hash.Hash.Content(usuario.Senha);
