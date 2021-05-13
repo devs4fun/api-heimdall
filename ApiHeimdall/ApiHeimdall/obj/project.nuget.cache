@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7eaoP9hp53uSTwJYXiZVprCmUDNNB0/cdualp16nsnZFjuM3H+N6yEXmY4EHsHm2XGygmRuneZDmEm00jweE3A==",
+  "dgSpecHash": "6MlmAOr9PffvvyUZFf+aM9dZxa6ew1rjoNkpBgW9OKRJa52z4y+Av8kKp651pXR2Q5XfKoLgUsS/Qi8jywg0lQ==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\api-heimdall\\ApiHeimdall\\ApiHeimdall\\ApiHeimdall.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ROBSON\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\md5\\2.0.0\\md5.2.0.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -78,7 +79,7 @@
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\ROBSON\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

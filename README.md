@@ -49,3 +49,11 @@ Baixei os pacotes necessários do EntityFramework Core para usar EF com Mysql:
   
 # ATIVAÇÃO DE E-MAIL - /api/tokenController/82f6bfc659a7dd6274ad6f0fd01c6971
   Verifica o token e ativa o usuário...
+
+
+# ... ETAPA
+  Mapeando classe de request para classe de dominio.
+  
+  Referências:
+  - https://www.treinaweb.com.br/blog/utilizando-automapper-no-c/
+  

@@ -40,5 +40,10 @@ namespace ApiHeimdall.Models
             }
             return false;
         }
+
+        internal bool EhValido()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
