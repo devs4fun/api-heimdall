@@ -18,8 +18,8 @@ Ao enviar corretamente esses dados o usuário ainda vai precisar validar a conta
 
 # REQUISITOS 
 Para rodar o projeto:
-- Asp.net core 3.1;
-- MySQL;
+- Asp.net core 3.1 - https://dotnet.microsoft.com/en-us/download/dotnet/3.1;
+- MySQL - https://dev.mysql.com/downloads/installer/;
 - MySQL Workbench 8.0 CE instalado na máquina;
 
 # PRIMEIRA ETAPA
